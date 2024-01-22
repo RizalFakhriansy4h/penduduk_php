@@ -29,8 +29,8 @@ function tambahData($post) {
     $nik = $nikProvinsi . $nikTanggalLahir . $nikAgama . $nikPekerjaan;
 
     // Masukkan ke database
-    $query = "INSERT INTO profil (id,nik, nama, alamat, status, umur, email) 
-              VALUES ('','$nik', '$nama', '$alamat', '$status', '$umur', '$email')";
+    $query = "INSERT INTO profil (nik, nama, alamat, status, umur, email) 
+              VALUES ('$nik', '$nama', '$alamat', '$status', '$umur', '$email')";
 
     mysqli_query($conn, $query);
 
@@ -115,7 +115,7 @@ if (isset($_POST["tambah"])) {
                                 <label for="nikProvinsi" class="form-label">Provinsi</label>
                                 <select class="form-select" id="nikProvinsi" name="nikProvinsi">
                                     <?php foreach($provinsis as $provinsi): ?>
-                                        <option value="<?= $provinsi["id_provinsi"] ?>"><?= $provinsi["nama_provinsi"] ?></option>
+                                        <option value="<?= $provinsi["id_provinsi"] ?>"><?= $provinsi["id_provinsi"] . "-" . $provinsi["nama_provinsi"] ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
@@ -130,7 +130,7 @@ if (isset($_POST["tambah"])) {
                                 <label for="nikPekerjaan" class="form-label">Pekerjaan</label>
                                 <select class="form-select" id="nikPekerjaan" name="nikPekerjaan">
                                     <?php foreach($pekerjaans as $pekerjaan): ?>
-                                        <option value="<?= $pekerjaan["id_pekerjaan"] ?>"><?= $pekerjaan["nama_pekerjaan"] ?></option>
+                                        <option value="<?= $pekerjaan["id_pekerjaan"] ?>"><?= $pekerjaan["id_pekerjaan"] . "-" . $pekerjaan["nama_pekerjaan"] ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
@@ -138,7 +138,7 @@ if (isset($_POST["tambah"])) {
                                 <label for="nikAgama" class="form-label">Agama</label>
                                 <select class="form-select" id="nikAgama" name="nikAgama">
                                     <?php foreach($agamas as $agama): ?>
-                                        <option value="<?= $agama["id_agama"] ?>"><?= $agama["nama_agama"] ?></option>
+                                        <option value="<?= $agama["id_agama"] ?>"><?= $agama["id_agama"] . "-" . $agama["nama_agama"] ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>

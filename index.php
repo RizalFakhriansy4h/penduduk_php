@@ -40,6 +40,9 @@ if (isset($_GET["cari"])) {
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
     <title>Halaman Penduduk</title>
   </head>
   <body>
@@ -73,22 +76,27 @@ if (isset($_GET["cari"])) {
     </div>
     <h3 class="mt-3" >TABEL PENDUDUK</h3>
     <div class="row">
-            <div class="col-md-4">
-                <form action="" method="get">
+            <div class="col-md-4 border border-warning">
+                <!-- <form action="" method="get">
                     <div class="input-group mb-6">
                         <input type="text" class="form-control" placeholder="Cari Nama/Email.." name="keyword" autocomplete="off">
                         <div class="input-group-append">
                             <button class="btn btn-primary" name="cari">Cari</button>
                         </div>
                     </div>
-                </form>
+                </form> -->
+                <h4>Aturan NIK : <span class="text-primary">07</span>30061998<span class="text-danger">03</span><span class="text-success">41</span></h4>
+                <p class="text-primary">Aa : Kode Provinsi</p>
+                <p>Aa : Kode Tanggal Lahir (DD/MM/YYYY)</p>
+                <p class="text-danger">Aa : Kode Agama</p>
+                <p class="text-success">Aa : Kode Pekerjaan</p>
             </div>
     </div>
         
     <div class="row mt-3">
         <div class="col-md">
-            <h5>Hasil : <?= $jumlah_penduduk ?></h5>
-            <table class="table">
+            <!-- <h5>Hasil : <?= $jumlah_penduduk ?></h5> -->
+            <table class="table table-hover" id="example">
                 <thead>
                     <tr>
                     <th scope="col">#</th>
@@ -124,5 +132,11 @@ if (isset($_GET["cari"])) {
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+        new DataTable('#example');
+    </script>
 </body>
 </html>
